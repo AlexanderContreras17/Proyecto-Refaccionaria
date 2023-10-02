@@ -1,0 +1,55 @@
+﻿<UserControl x:Class="ProyectoRefaccionaria2.Views.MarcasViews.AgregarMarcasView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ProyectoRefaccionaria2.Views.MarcasViews"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="700">
+    <DockPanel Background="#e3dddd">
+
+        <!--Modifique el nombre de la carpeta "asetts" por "Assets"-->
+        <Border DockPanel.Dock="Left" Background="#e3dddd" Width="150" Height="442"
+                CornerRadius="0,20,20,0" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Image Source="\Assets\AgregarMarca.png" Stretch="Fill" Width="160"  Height="450" Margin="-20,10,-20,-18" />
+
+        </Border>
+        <Border  BorderBrush="#df4f11" BorderThickness="2.5" Margin="12" CornerRadius="0,20,20,0">
+            <StackPanel Margin="50,0" VerticalAlignment="Center">
+                <StackPanel.Resources>
+                    <Style TargetType="TextBlock">
+                        <Setter Property="Margin" Value="10"></Setter>
+                    </Style>
+                </StackPanel.Resources>
+                <TextBlock  FontSize="15" Foreground="Black" FontWeight="DemiBold">Nombre:</TextBlock>
+                <TextBox  Text="{Binding Marca.Nombre}" TextChanged="TextBox_TextChanged">
+                    <TextBox.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="10"></Setter>
+                        </Style>
+                    </TextBox.Resources>
+                </TextBox>
+                <WrapPanel Margin="0,40,0,0" HorizontalAlignment="Center">
+
+                    <Border Margin="0,0,30,0" Background="#e05206"  CornerRadius="10" Width="90">
+                        <Button Command="{Binding AgregarMarcasCommand}" 
+                                Background="Transparent" BorderThickness="0" 
+                                Foreground="White" FontWeight="Bold" Height="30"
+                                VerticalAlignment="Top">Aceptar</Button>
+                    </Border>
+
+                    <Border Background="#e01010" Height="30" CornerRadius="10" Width="90">
+                        <Button  Background="Transparent" BorderThickness="0" Foreground="White"
+                                 FontWeight="Bold" Command="{Binding RegresarCommand}">Cancelar</Button>
+                    </Border>
+
+                </WrapPanel>
+
+                <TextBlock Text="{Binding Error}" FontWeight="Bold" FontSize="13" Margin="0,30,0,0" Foreground="#DF2E38" HorizontalAlignment="Center"></TextBlock>
+
+
+            </StackPanel>
+
+        </Border>
+    </DockPanel>
+</UserControl>

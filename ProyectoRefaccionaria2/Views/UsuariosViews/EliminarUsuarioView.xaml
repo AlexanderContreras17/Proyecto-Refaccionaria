@@ -1,0 +1,55 @@
+﻿<UserControl x:Class="ProyectoRefaccionaria2.Views.UsuariosViews.EliminarUsuarioView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ProyectoRefaccionaria2.Views.UsuariosViews"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Border Background="#e3dddd" Margin="30" CornerRadius="10"  BorderBrush="#df4f11" BorderThickness="5">
+
+
+        <DockPanel Margin="10,10,10,10"  >
+            <Border Background="#b31b00" Width="242" CornerRadius="0,20,20,0">
+                <Image Source="/Assets\EliminarProductoFondo.jpg" Stretch="Fill" Width="230"  Height="350" />
+            </Border >
+            <!--<Image Source="\AssetsFondo\EliminarProductoFondo.jpg" Stretch="Fill" Height="388" Width="284" />-->
+
+
+            <TextBlock HorizontalAlignment="Center"
+                       FontSize="25" FontWeight="Bold"
+                       DockPanel.Dock="Top"
+                       Margin="0,40,0,0"
+                       >Eliminar Usuario</TextBlock>
+            <StackPanel >
+                <TextBlock HorizontalAlignment="Center"
+                            Margin="10,50,10,10"
+                           FontWeight="DemiBold"
+                           FontSize="20"
+                           TextWrapping="Wrap"
+                           ><Run Text="¿Desea eliminar este producto:"></Run>
+                <Run Text="{Binding Usuario.Nombre}">
+                </Run>
+                <Run Text="de tipo"></Run>
+                <Run Text="{Binding Usuario.IdTipoRolNavigation.Nombre}"></Run>
+                <Run Text="?"></Run>
+                </TextBlock>
+
+
+                <WrapPanel HorizontalAlignment="Center" Margin="0,30,0,0">
+
+                    <Border Margin="0,0,30,0" Background="#e05206" Height="40" CornerRadius="10" Width="110">
+                        <Button Background="Transparent" Command="{Binding EliminarUsuariosCommand}" 
+                                Foreground="White" FontSize="15" BorderThickness="0" FontWeight="Bold">Sí</Button>
+                    </Border>
+
+                    <Border Background="#e01010" Height="40" CornerRadius="10" Width="110">
+                        <Button Command="{Binding RegresarCommand}"  FontSize="15"  Background="Transparent" Foreground="White" BorderThickness="0" FontWeight="Bold">No</Button>
+                    </Border>
+
+                </WrapPanel>
+            </StackPanel>
+        </DockPanel>
+    </Border>
+
+</UserControl>

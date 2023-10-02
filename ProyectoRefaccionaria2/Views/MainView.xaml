@@ -1,0 +1,118 @@
+﻿<Window x:Class="ProyectoRefaccionaria2.Views.MainView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProyectoRefaccionaria2.Views"
+        xmlns:vistasProductos="clr-namespace:ProyectoRefaccionaria2.Views.ProductosViews"
+        xmlns:vistasMarcas="clr-namespace:ProyectoRefaccionaria2.Views.MarcasViews"
+        xmlns:vistasUsuarios="clr-namespace:ProyectoRefaccionaria2.Views.UsuariosViews"
+        xmlns:vm="clr-namespace:ProyectoRefaccionaria2.ViewModels"
+        mc:Ignorable="d"
+        Title="MainView" Height="500" Width="800">
+    <Window.DataContext>
+        <vm:MainViewModel></vm:MainViewModel>
+    </Window.DataContext>
+    
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type vm:ProductosViewModel}">
+            <vistasProductos:IndexProductos/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:MarcasViewModel}">
+            <vistasMarcas:IndexMarcas/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:UsuariosViewModel}">
+            <vistasUsuarios:IndexUsuariosView/>
+        </DataTemplate>
+
+        <vistasUsuarios:LoginView x:Key="Login"/>
+        
+        
+       
+        <DockPanel x:Key="General" >
+          
+
+            <StackPanel Background="#e3dddd" >
+                <!--marcas-->
+                <StackPanel Background="#f2B63b" >
+                <Button Width="100" 
+                        Background="#f2B63b"
+                        Foreground="#FFFFFF"
+                        Height="75"
+                        Margin="0,0,0,0"
+                      BorderBrush="#f2b63b"
+                        
+                         Command="{Binding NavegarMarcasCommand}">
+                    <Image Source="\Assets\Marca.png"></Image>
+                </Button>
+                    <TextBlock Foreground="White" Background="#f2b63b" FontWeight="Bold" Height="30"
+                               FontSize="17" VerticalAlignment="Center" HorizontalAlignment="Center">Marcas</TextBlock>
+                </StackPanel>
+                
+                
+                <!--Productos-->
+                <StackPanel Background="#fe6700">
+                <Button  Width="100"
+                    Background="#fe6700" 
+                         Foreground="#FFFFFF"
+                        FontWeight="Bold" 
+                         Height="75" 
+                         Margin="0,0,0,0"
+                         BorderBrush="#fe6700" 
+                         Command="{Binding NavegarProductosCommand}">
+                        <Image Source="\Assets\Productos.png"></Image>
+                </Button>
+                    <TextBlock Foreground="White" Background="#fe6700" FontWeight="Bold" Height="30"
+                               FontSize="17" VerticalAlignment="Center" HorizontalAlignment="Center">Productos</TextBlock>
+                </StackPanel>
+                <!--Usuarios-->
+
+                <StackPanel Background="#ff0000">
+                <Button  Background="#FF0000"
+                         Foreground="White"
+                        FontWeight="Bold" 
+                         Height="75" 
+                         Margin="0,0,0,0"
+                      BorderBrush="#FF0000"
+                         Command="{Binding NavegarUsuariosCommand}">
+                        <Image Source="\Assets\AgregarUsuario.png"></Image>
+                    </Button>
+                    <TextBlock Foreground="White" Background="#ff0000" FontWeight="Bold" Height="30"
+                               FontSize="17" VerticalAlignment="Center" HorizontalAlignment="Center">Usuarios</TextBlock>
+                </StackPanel>
+            
+            
+                <!--cerrar sesion-->
+                <StackPanel Background="Transparent">
+                    <Button Background="Transparent"
+                        Foreground="White"
+                        FontWeight="Bold"
+                        FontSize="17" 
+                        Height="60"
+                        Margin="0,30,0,0"
+                        BorderThickness="0"
+                        Command="{Binding CerrarSesionCommand}">
+                        <Image Source="C:\Users\LENOVO\Source\Repos\ProyectoRefaccionaria2\ProyectoRefaccionaria2\Assets\cerrar-sesion.png"></Image>
+                    </Button>
+                    <TextBlock Foreground="White" Background="#B7BAC3" FontWeight="Bold" Height="30"
+                               FontSize="17" VerticalAlignment="Center" HorizontalAlignment="Center">Cerrar Sesíon</TextBlock>
+                </StackPanel>
+            </StackPanel>
+                
+        
+            <ContentControl Content="{Binding ViewModelActual}"/>
+        </DockPanel>
+            
+    </Window.Resources>
+
+    <Window.Style>
+        <Style TargetType="Window">
+            <Setter Property="Content" Value="{StaticResource Login}"/>
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding IsLogged}" Value="VerGeneral">
+                    <Setter Property="Content" Value="{StaticResource General}"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Style>
+</Window>

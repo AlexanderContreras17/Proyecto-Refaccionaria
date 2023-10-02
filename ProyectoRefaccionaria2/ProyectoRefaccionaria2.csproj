@@ -1,0 +1,47 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net7.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Assets\AgregarMarca.png" />
+    <None Remove="Assets\AgregarUsuario.png" />
+    <None Remove="Assets\EliminarMarcaPub.jpg" />
+    <None Remove="Assets\EliminarProductoFondo.jpg" />
+    <None Remove="Assets\EliminarProductoPub.jpg" />
+    <None Remove="Assets\EliminarUsuario.png" />
+    <None Remove="Assets\FondoAgregar.jpg" />
+    <None Remove="Assets\fondoPrincipal.jpg" />
+    <None Remove="Assets\Marca.png" />
+    <None Remove="Assets\notas.png" />
+    <None Remove="Assets\Productos.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.7">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="MvvmLightLibs" Version="5.4.1.1" />
+    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="7.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\AgregarMarca.png" />
+    <Resource Include="Assets\AgregarUsuario.png" />
+    <Resource Include="Assets\EliminarMarcaPub.jpg" />
+    <Resource Include="Assets\EliminarProductoFondo.jpg" />
+    <Resource Include="Assets\EliminarProductoPub.jpg" />
+    <Resource Include="Assets\EliminarUsuario.png" />
+    <Resource Include="Assets\FondoAgregar.jpg" />
+    <Resource Include="Assets\fondoPrincipal.jpg" />
+    <Resource Include="Assets\Marca.png" />
+    <Resource Include="Assets\notas.png" />
+    <Resource Include="Assets\Productos.png" />
+  </ItemGroup>
+
+</Project>

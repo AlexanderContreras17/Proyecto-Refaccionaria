@@ -1,0 +1,68 @@
+﻿<UserControl x:Class="ProyectoRefaccionaria2.Views.UsuariosViews.RegistrarUsuariosView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ProyectoRefaccionaria2.Views.UsuariosViews"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <DockPanel Background="#e3dddd" >
+
+
+        <Grid>
+            <StackPanel  Margin="10,10,10,10" Background="#e3dddd">
+                <Separator Background="#df4f11"></Separator>
+                <Label Content="Cuenta:" Foreground="Black" FontSize="25" FontWeight="Bold" FontStyle="Italic"  HorizontalAlignment="Center"/>
+                <Separator Background="#df4f11" ></Separator>
+                <Label Content="Nombre" Foreground="Black" />
+                <TextBox Text="{Binding Usuario.Nombre}"  BorderBrush="Black" Background="Transparent"  FontSize="18" >
+                    <TextBox.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="10"></Setter>
+                        </Style>
+                    </TextBox.Resources>
+                </TextBox>
+                <Label Content="Correo Electronico" Foreground="Black" />
+                <TextBox  Text="{Binding Usuario.Correo}"  BorderBrush="black" Background="Transparent"  FontSize="18" >
+                    <TextBox.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="10"></Setter>
+                        </Style>
+                    </TextBox.Resources>
+                </TextBox>
+                <Label Content="Contraseña" Foreground="Black" />
+                <TextBox Text="{Binding Usuario.Contraseña}"  BorderBrush="Black" Background="Transparent" Foreground="Black" FontSize="18">
+                    <TextBox.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="10"></Setter>
+                        </Style>
+                    </TextBox.Resources>
+                </TextBox>
+
+                <Label Content="Rol" Foreground="Black" />
+                <ComboBox ItemsSource="{Binding ListaRolesUsuarios}" SelectedValue="{Binding Usuario.IdTipoRol}" 
+                          DisplayMemberPath="Nombre" SelectedValuePath="IdRol" 
+                          BorderBrush="Black" Background="Transparent" Foreground="Black" FontSize="18"/>
+
+
+                <TextBlock Margin="10" Text="{Binding Error}" Foreground="Red" HorizontalAlignment="Center"></TextBlock>
+                <WrapPanel Margin="0,20,0,0" HorizontalAlignment="Center">
+                    <!--en command, falta el binding para que mande a llamar al metodo de agregar-->
+
+                    <Border Margin="0,0,30,0" Background="#e05206" Height="30" CornerRadius="10" Width="90">
+                        <Button Command="{Binding AgregarUsuarioCommand}" Background="Transparent"
+                                BorderThickness="0" Foreground="White" 
+                                FontWeight="Bold" Height="30" 
+                                VerticalAlignment="Top">Registrarse</Button>
+                    </Border>
+
+                    <Border Background="#e01010" Height="30" CornerRadius="10" Width="90">
+                        <Button  Command="{Binding RegresarCommand}" Background="Transparent" BorderThickness="0" Foreground="White" FontWeight="Bold">Atrás</Button>
+                    </Border>
+
+                </WrapPanel>
+
+            </StackPanel>
+        </Grid>
+    </DockPanel>
+</UserControl>
